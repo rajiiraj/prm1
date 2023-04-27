@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+ const readline = require('readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.question('Enter total classes: ', (total_classes) => {
+  rl.question('Enter attended classes: ', (attended_classes) => {
+    rl.question('Do you have a medical cause? (Y/N): ', (medical_cause) => {
+
+      let attendance_criteria = 0.75;
+
+      if (medical_cause === 'Y') {
+        attendance_criteria = 0.6;
+      }
+
+      const attendance_percentage = attended_classes / total_classes;
+
+      if (attendance_percentage >= attendance_criteria) {
+        console.log(true);
+      } else {
+        console.log(false);
+      }
+
+      rl.close();
+    });
+  });
+});
+
+
+
+    </script>
+   </body>
+</html>
